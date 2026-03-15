@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oil Crew Service Construction</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --panel: #111827;
+      --panel-2: #1f2937;
+      --text: #e5e7eb;
+      --muted: #cbd5e1;
+      --accent: #f59e0b;
+      --accent-dark: #d97706;
+      --light: #f8fafc;
+      --border: rgba(255,255,255,0.1);
+      --shadow: 0 20px 40px rgba(0,0,0,0.28);
+      --radius: 18px;
+      --max: 1150px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        linear-gradient(rgba(15, 23, 42, 0.78), rgba(15, 23, 42, 0.88)),
+        url('https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=1600&q=80') center/cover fixed;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(var(--max), calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      background: rgba(15, 23, 42, 0.82);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem 0;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .brand strong {
+      font-size: 1.05rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .brand span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: white;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.9rem 1.2rem;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: 0.2s ease;
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #111827;
+      box-shadow: var(--shadow);
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus-visible {
+      background: var(--accent-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      border-color: rgba(255,255,255,0.24);
+      color: white;
+      background: rgba(255,255,255,0.04);
+    }
+
+    .btn-secondary:hover,
+    .btn-secondary:focus-visible {
+      background: rgba(255,255,255,0.09);
+    }
+
+    .hero {
+      padding: 5rem 0 4rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(245, 158, 11, 0.14);
+      border: 1px solid rgba(245, 158, 11, 0.28);
+      color: #fde68a;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 4.3rem);
+      line-height: 1.05;
+      margin: 0 0 1rem;
+    }
+
+    .hero p {
+      font-size: 1.08rem;
+      color: var(--muted);
+      max-width: 760px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.8rem;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .stat {
+      padding: 1rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.4rem;
+      color: white;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .hero-card,
+    .card {
+      background: rgba(17, 24, 39, 0.88);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      padding: 1.6rem;
+    }
+
+    .hero-card h3 {
+      margin-top: 0;
+      margin-bottom: 0.75rem;
+      font-size: 1.35rem;
+    }
+
+    .hero-card ul {
+      margin: 1rem 0 0;
+      padding-left: 1.2rem;
+      color: var(--muted);
+    }
+
+    .hero-card li + li { margin-top: 0.55rem; }
+
+    section {
+      padding: 2rem 0 4rem;
+    }
+
+    .section-heading {
+      margin-bottom: 1.5rem;
+      max-width: 760px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      margin: 0 0 0.6rem;
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .services-grid,
+    .owners-grid,
+    .contact-grid {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    .services-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .owners-grid,
+    .contact-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .card {
+      padding: 1.4rem;
+    }
+
+    .card h3 {
+      margin: 0 0 0.6rem;
+      font-size: 1.2rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .accent-line {
+      width: 54px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 999px;
+      margin-bottom: 1rem;
+    }
+
+    .about-box {
+      padding: 1.8rem;
+    }
+
+    .about-box p {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .owner-title {
+      color: #fde68a;
+      font-weight: 700;
+      margin-bottom: 0.45rem;
+      display: inline-block;
+    }
+
+    .cta {
+      padding-bottom: 5rem;
+    }
+
+    .cta-box {
+      display: flex;
+      justify-content: space-between;
+      gap: 1.2rem;
+      align-items: center;
+      padding: 1.6rem;
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.16), rgba(255,255,255,0.05));
+      border: 1px solid rgba(245, 158, 11, 0.25);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .cta-box h2 {
+      margin: 0 0 0.4rem;
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+    }
+
+    .cta-box p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.92);
+    }
+
+    .footer-inner {
+      padding: 1.4rem 0;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .services-grid,
+      .owners-grid,
+      .contact-grid,
+      .cta-box {
+        grid-template-columns: 1fr;
+        display: grid;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        padding-top: 3.5rem;
+      }
+
+      .container {
+        width: min(var(--max), calc(100% - 1.2rem));
+      }
+
+      .hero-card,
+      .card,
+      .about-box,
+      .cta-box {
+        padding: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <div class="brand">
+        <strong>Oil Crew Service Construction</strong>
+        <span>Efficient oilfield solutions</span>
+      </div>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#owners">Leadership</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Reliable Support for Oilfield Operations</div>
+          <h1>Efficient solutions for drilling, completion, and production enhancement.</h1>
+          <p>
+            Oil Crew Service Construction provides practical oilfield support built around performance,
+            equipment reliability, and field efficiency. From drilling support to maintenance and operations,
+            the company helps crews keep extraction processes moving.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Request Service</a>
+            <a class="btn btn-secondary" href="#services">View Services</a>
+          </div>
+          <div class="stats">
+            <div class="stat">
+              <strong>Drilling</strong>
+              <span>Support services tailored to active oilfield work</span>
+            </div>
+            <div class="stat">
+              <strong>Completion</strong>
+              <span>Solutions designed to improve field readiness</span>
+            </div>
+            <div class="stat">
+              <strong>Production</strong>
+              <span>Operational support for stronger extraction performance</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <h3>What We Deliver</h3>
+          <p style="color: var(--muted); margin: 0;">
+            Focused oilfield services for teams that need dependable support in demanding conditions.
+          </p>
+          <ul>
+            <li>Drilling service support for efficient field activity</li>
+            <li>Completion assistance to help projects move forward smoothly</li>
+            <li>Production enhancement support for optimized extraction workflows</li>
+            <li>Equipment maintenance and field operations assistance</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-heading">
+          <div class="accent-line"></div>
+          <h2>Core Services</h2>
+          <p>
+            The company provides a variety of efficient solutions tailored for oilfields, with service coverage
+            aimed at improving reliability, output, and operational performance.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <article class="card">
+            <h3>Drilling Services</h3>
+            <p>
+              Support for drilling operations with a focus on efficiency, field coordination, and dependable service delivery.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Completion Services</h3>
+            <p>
+              Completion support designed to help projects transition effectively from drilling into productive operations.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Production Enhancement</h3>
+            <p>
+              Practical support intended to improve oil extraction performance and maintain steady field productivity.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Equipment Maintenance</h3>
+            <p>
+              Maintenance assistance that helps preserve equipment function and reduce operational interruptions.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Field Operations Support</h3>
+            <p>
+              On-site operational support for crews working across oilfield service, coordination, and production activity.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Efficiency-Focused Solutions</h3>
+            <p>
+              Service planning centered on performance, responsiveness, and helping teams operate more effectively in the field.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-heading">
+          <div class="accent-line"></div>
+          <h2>About the Company</h2>
+        </div>
+
+        <div class="hero-card about-box">
+          <p>
+            Oil Crew Service Construction is a notable resource for those engaged in oilfield operations. The company supports
+            the oil and gas industry through drilling, completion, and production-oriented services while also providing equipment
+            maintenance and field operations assistance. Its overall focus is on helping customers achieve efficient and dependable
+            performance in oil extraction processes.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="owners">
+      <div class="container">
+        <div class="section-heading">
+          <div class="accent-line"></div>
+          <h2>Leadership</h2>
+          <p>
+            Oil Crew Service Inc. is led by owners committed to supporting the demands of modern oilfield work.
+          </p>
+        </div>
+
+        <div class="owners-grid">
+          <article class="card">
+            <span class="owner-title">Owner</span>
+            <h3>Tyler Waidley</h3>
+            <p>
+              Leadership focused on efficient service delivery, operational support, and dependable field execution.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="owner-title">Owner</span>
+            <h3>Christopher Otken</h3>
+            <p>
+              Leadership dedicated to practical oilfield solutions, equipment support, and strong operational performance.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-heading">
+          <div class="accent-line"></div>
+          <h2>Contact & Next Steps</h2>
+          <p>
+            Use this section as your website contact area. You can replace the placeholder details below with your real phone,
+            email, service area, and business hours.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <article class="card">
+            <h3>Service Requests</h3>
+            <p>
+              Email: yourcompany@email.com<br />
+              Phone: (000) 000-0000<br />
+              Service Area: Add your main oilfield regions here
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Business Information</h3>
+            <p>
+              Company: Oil Crew Service Construction<br />
+              Owners: Tyler Waidley, Christopher Otken<br />
+              Hours: Add your business hours here
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>© <span id="year"></span> Oil Crew Service Construction. All rights reserved.</div>
+      <div>Built for GitHub Pages deployment.</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

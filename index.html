@@ -7,6 +7,8 @@
   <meta name="description" content="Oil Crew Service Inc. delivers dependable oilfield support services including drilling support, completion services, production assistance, equipment maintenance, and field operations." />
   <meta name="theme-color" content="#0b0f14" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 </head>
 <body>
   <header class="topbar">
@@ -21,6 +23,8 @@
         <a href="#services">Services</a>
         <a href="#about">About</a>
         <a href="#owners">Leadership</a>
+        <a href="#gallery">Field Gallery</a>
+        <a href="#service-area">Service Area</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -41,9 +45,7 @@
           <div class="hill-seam-cover"></div>
           <div class="hill hill-near"></div>
 
-          
           <div class="brush-scatter">
-
             <div class="brush-clump brush-top-1"></div>
             <div class="brush-clump brush-top-2"></div>
             <div class="brush-clump brush-top-3"></div>
@@ -142,7 +144,6 @@
           <a href="#contact" class="btn btn-secondary">Request Service</a>
           <a href="#services" class="btn btn-secondary">View Services</a>
         </div>
-
       </div>
     </section>
 
@@ -151,7 +152,6 @@
         <div class="section-heading">
           <div class="accent-line"></div>
           <h2>Services</h2>
-          <p>Professional, focused support designed to keep operations moving efficiently.</p>
         </div>
 
         <div class="grid grid-3">
@@ -189,8 +189,12 @@
           <div class="accent-line"></div>
           <h2>About</h2>
           <p>
-            Oil Crew Service Inc. provides efficient solutions tailored for oilfield operations,
-            including drilling, completion, production enhancement, equipment support, and field assistance.
+            Oil Crew Service Inc. delivers dependable field support for oil and gas operations throughout Southern California. Our team works directly with drilling, completion,
+            and production crews to provide practical assistance that keeps projects moving safely and efficiently. Built on field experience, our company focuses on responsive service,
+            reliable equipment support, and the ability to adapt quickly to the demands of active operations. From drilling support to completion assistance and production maintenance, we understand the
+            pace and conditions of real field work. Our approach is straightforward: show up prepared, work safely, and deliver dependable results that crews can count on. We take pride in supporting operators
+            and service companies with the equipment, coordination, and field knowledge needed to keep operations running smoothly. Oil Crew Service Inc. is committed to maintaining strong working relationships with
+            our partners by delivering consistent service, clear communication, and reliable support across every project.
           </p>
         </article>
       </div>
@@ -206,13 +210,48 @@
         <div class="grid grid-2">
           <article class="card">
             <span class="owner-title">Owner</span>
-            <h3>Tyler Waidley</h3>
-            <p>Leadership focused on dependable field execution and service delivery.</p>
+            <h3>Christopher Otken</h3>
+            <p>Christopher Otken brings over 20 years of oilfield industry experience focused on field operations, equipment readiness, and reliable service support.
+              As co-owner of Oil Crew Service Inc., he helps oversee operations and works to ensure crews have the dependable equipment and field support needed to keep
+              projects running safely and efficiently.</p>
           </article>
           <article class="card">
             <span class="owner-title">Owner</span>
-            <h3>Christopher Otken</h3>
-            <p>Leadership centered on practical support, operations, and equipment readiness.</p>
+            <h3>Tyler Waidley</h3>
+            <p>Tyler’s leadership approach centers on dependable service, clear communication, and practical execution in demanding field conditions. He works closely
+              with operators and service crews to ensure projects are supported with the responsiveness and coordination needed to keep operations moving.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" class="section section-alt">
+      <div class="container">
+        <div class="section-heading">
+          <div class="accent-line"></div>
+          <h2>Field Gallery</h2>
+        </div>
+
+        <div class="carousel card">
+          <img id="carousel-image" src="images/IMG_1583.jpg" alt="Oilfield operations and equipment in the field" />
+          <button class="carousel-btn carousel-btn-prev" type="button" onclick="prevSlide()" aria-label="Previous gallery image">‹</button>
+          <button class="carousel-btn carousel-btn-next" type="button" onclick="nextSlide()" aria-label="Next gallery image">›</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="service-area" class="section">
+      <div class="container">
+        <div class="section-heading">
+          <div class="accent-line"></div>
+          <h2>Service Area</h2>
+          <p>We provide support across key Southern California operating areas, including Los Angeles County, Orange County, and Riverside County.</p>
+        </div>
+
+        <div class="grid grid-1 service-area-grid">
+          <article class="card">
+            <h3>Service Area Coverage</h3>
+            <div id="service-map" class="service-map" aria-label="Map showing service coverage areas"></div>
           </article>
         </div>
       </div>
@@ -222,45 +261,38 @@
       <div class="container">
         <div class="section-heading">
           <div class="accent-line"></div>
-          <h2>Contact</h2>
+          <h2>Contact Us</h2>
         </div>
 
         <div class="grid grid-2">
+
+          <!-- Contact Info -->
           <article class="card">
-            <h3>Service Requests</h3>
+            <h3>Phone & Email</h3>
             <p>
               Email: your@email.com<br />
-              Phone: (000) 000-0000<br />
-              Service Area: Add your service region here
+              Phone: 714-319-4985
             </p>
-            <a href="mailto:your@email.com" class="btn btn-secondary contact-btn">Email Now</a>
+
+            <a href="mailto:your@email.com" class="btn btn-secondary contact-btn">
+              Email Now
+            </a>
           </article>
+
+          <!-- Reasons to Contact -->
           <article class="card">
-            <h3>Business Info</h3>
-            <p>
-              Company: Oil Crew Service Inc.<br />
-              Owners: Tyler Waidley, Christopher Otken
-            </p>
+            <h3>Contact For:</h3>
+            <ul class="contact-reasons">
+              <li>Service requests</li>
+              <li>Field support inquiries</li>
+              <li>General questions</li>
+            </ul>
           </article>
+
         </div>
       </div>
     </section>
-  
-<section id="gallery" class="container" style="margin:60px auto;">
-  <h2>Field Gallery</h2>
-  <div class="carousel" style="position:relative;max-width:100%;overflow:hidden;">
-    <img id="carousel-image" src="images/IMG_1583.jpg"
-    style="width:100%;height:1000px;object-fit:cover;object-position:center;display:block;border-radius:6px;">
-
-    <button onclick="prevSlide()" 
-    style="position:absolute;top:50%;left:10px;transform:translateY(-50%);font-size:24px;background:rgba(0,0,0,0.5);color:white;border:none;padding:8px 12px;cursor:pointer;">‹</button>
-
-    <button onclick="nextSlide()" 
-    style="position:absolute;top:50%;right:10px;transform:translateY(-50%);font-size:24px;background:rgba(0,0,0,0.5);color:white;border:none;padding:8px 12px;cursor:pointer;">›</button>
-  </div>
-</section>
-
-</main>
+  </main>
 
   <footer class="footer">
     <div class="container footer-inner">
@@ -268,37 +300,91 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
 
-<script>
-const images = [
-"images/IMG_1583.jpg",
-"images/IMG_1584.jpg",
-"images/IMG_1585.jpg",
-"images/IMG_1586.jpg",
-"images/IMG_1587.jpg",
-"images/IMG_1588.jpg",
-"images/IMG_1589.jpg",
-"images/IMG_1590.jpg",
-"images/IMG_1591.jpg",
-"images/IMG_1577.jpg",
-"images/IMG_1578.jpg",
-"images/IMG_1579.jpg",
-"images/IMG_1580.jpg",
-"images/IMG_1581.jpg",
-"images/IMG_1582.jpg",
-];
-let currentIndex = 0;
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener("click", () => {
+        const isOpen = navLinks.classList.toggle("is-open");
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+        document.body.classList.toggle("menu-open", isOpen);
+      });
 
-function showSlide(i){
-  const img = document.getElementById("carousel-image");
-  currentIndex = (i + images.length) % images.length;
-  img.src = images[currentIndex];
-}
+      navLinks.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("is-open");
+          menuToggle.setAttribute("aria-expanded", "false");
+          document.body.classList.remove("menu-open");
+        });
+      });
+    }
 
-function nextSlide(){ showSlide(currentIndex + 1); }
-function prevSlide(){ showSlide(currentIndex - 1); }
-</script>
+    document.getElementById("year").textContent = new Date().getFullYear();
 
+    const images = [
+      "images/IMG_1583.jpg",
+      "images/IMG_1584.jpg",
+      "images/IMG_1585.jpg",
+      "images/IMG_1586.jpg",
+      "images/IMG_1587.jpg",
+      "images/IMG_1588.jpg",
+      "images/IMG_1589.jpg",
+      "images/IMG_1590.jpg",
+      "images/IMG_1591.jpg",
+      "images/IMG_1577.jpg",
+      "images/IMG_1578.jpg",
+      "images/IMG_1579.jpg",
+      "images/IMG_1580.jpg",
+      "images/IMG_1581.jpg",
+      "images/IMG_1582.jpg"
+    ];
+
+    let currentIndex = 0;
+
+    function showSlide(i) {
+      const img = document.getElementById("carousel-image");
+      currentIndex = (i + images.length) % images.length;
+      img.src = images[currentIndex];
+    }
+
+    function nextSlide() {
+      showSlide(currentIndex + 1);
+    }
+
+    function prevSlide() {
+      showSlide(currentIndex - 1);
+    }
+
+    const serviceMap = document.getElementById("service-map");
+    if (serviceMap && typeof L !== "undefined") {
+      const map = L.map("service-map").setView([33.9, -117.9], 9);
+
+      L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
+        attribution: "© OpenStreetMap & CARTO"
+      }).addTo(map);
+
+      L.circle([33.7175, -117.8311], {
+        color: "#c9a227",
+        fillColor: "#c9a227",
+        fillOpacity: 0.25,
+        radius: 35000
+      }).addTo(map);
+
+      L.circle([34.0522, -118.2437], {
+        color: "#c9a227",
+        fillColor: "#c9a227",
+        fillOpacity: 0.25,
+        radius: 45000
+      }).addTo(map);
+
+      L.circle([33.9533, -117.3962], {
+        color: "#c9a227",
+        fillColor: "#c9a227",
+        fillOpacity: 0.25,
+        radius: 45000
+      }).addTo(map);
+    }
+  </script>
 </body>
 </html>

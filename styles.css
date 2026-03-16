@@ -4,10 +4,10 @@
   --panel-border: rgba(255, 255, 255, 0.1);
   --white: #ffffff;
   --white-soft: #dce3ec;
-  --red: #c81f34;
-  --red-soft: #ff7a66;
-  --blue: #1c4fa3;
-  --blue-soft: #4f86ff;
+  --red: #6b3e1e;
+  --red-soft: #8b5a2b;
+  --blue: #3a2a1a;
+  --blue-soft: #5a3b20;
   --shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
   --radius: 22px;
   --max-width: 1180px;
@@ -223,9 +223,9 @@ a {
 }
 
 .btn-primary {
-  color: var(--white);
-  background: linear-gradient(135deg, #c22a3b, #4f86ff);
-  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.34);
+  color: #ffffff;
+  background: linear-gradient(135deg, #4a2c17, #7a4a24);
+  box-shadow: 0 18px 38px rgba(0,0,0,0.35);
 }
 
 .btn-secondary {
@@ -423,48 +423,48 @@ a {
 .pumpjack {
   position: absolute;
   bottom: 8%;
-  color: #070809;
-  filter: drop-shadow(0 20px 28px rgba(0, 0, 0, 0.35));
+  color: #040506;
+  filter: drop-shadow(0 18px 26px rgba(0, 0, 0, 0.3));
 }
 
 .pumpjack-left {
-  left: 5%;
-  width: 260px;
-  height: 210px;
-  opacity: 0.88;
+  left: 1%;
+  width: 320px;
+  height: 255px;
+  opacity: 0.9;
 }
 
 .pumpjack-center {
   left: 50%;
   transform: translateX(-50%);
-  width: 430px;
-  height: 350px;
+  width: 560px;
+  height: 438px;
   opacity: 1;
 }
 
 .pumpjack-right {
-  right: 6%;
-  width: 300px;
-  height: 238px;
-  opacity: 0.92;
+  right: 2%;
+  width: 380px;
+  height: 295px;
+  opacity: 0.93;
 }
 
 .pumpjack-base {
   position: absolute;
   bottom: 0;
-  left: 16%;
-  width: 56%;
-  height: 12px;
+  left: 13%;
+  width: 60%;
+  height: 10px;
   background: currentColor;
   border-radius: 999px;
 }
 
 .pumpjack-tower {
   position: absolute;
-  bottom: 12px;
-  left: 29%;
-  width: 24%;
-  height: 64%;
+  bottom: 10px;
+  left: 31%;
+  width: 22%;
+  height: 66%;
 }
 
 .pumpjack-tower::before,
@@ -472,7 +472,7 @@ a {
   content: "";
   position: absolute;
   bottom: 0;
-  width: 4.8%;
+  width: 5%;
   height: 100%;
   background: currentColor;
   border-radius: 999px;
@@ -503,50 +503,72 @@ a {
 
 .pumpjack-platform {
   position: absolute;
-  left: 16%;
-  bottom: 33%;
-  width: 37%;
-  height: 7px;
+  left: 18%;
+  bottom: 34%;
+  width: 34%;
+  height: 6px;
   background: currentColor;
   border-radius: 999px;
 }
 
 .pumpjack-head {
   position: absolute;
-  left: 31%;
-  top: 21%;
-  width: 52%;
+  left: 30%;
+  top: 20%;
+  width: 55%;
   height: 14%;
-  transform-origin: 16% 50%;
+  transform-origin: 22% 50%;
   animation: nod 3.2s ease-in-out infinite;
 }
 
 .beam {
   position: absolute;
-  left: 9%;
-  top: 37%;
-  width: 64%;
-  height: 10px;
+  left: 10%;
+  top: 36%;
+  width: 73%;
+  height: 12px;
   background: currentColor;
   border-radius: 999px;
 }
 
+.beam::before {
+  content: "";
+  position: absolute;
+  left: -10%;
+  top: -1px;
+  width: 18%;
+  height: 14px;
+  background: currentColor;
+  border-radius: 999px;
+}
+
+.beam::after {
+  content: "";
+  position: absolute;
+  right: -2%;
+  top: 1px;
+  width: 15%;
+  height: 10px;
+  background: currentColor;
+  border-radius: 0 999px 999px 0;
+  transform: rotate(4deg);
+}
+
 .horsehead {
   position: absolute;
-  right: 0;
-  top: 12%;
-  width: 23%;
-  height: 62%;
+  left: -6%;
+  top: -4%;
+  width: 26%;
+  height: 110%;
   background: currentColor;
-  border-radius: 10px 22px 22px 10px;
-  clip-path: polygon(0 0, 100% 10%, 100% 90%, 0 100%, 14% 55%, 14% 42%);
+  clip-path: polygon(88% 0, 100% 5%, 96% 100%, 47% 100%, 28% 88%, 20% 74%, 15% 58%, 16% 43%, 24% 26%, 38% 10%, 58% 1%);
 }
 
 .pivot {
   position: absolute;
-  left: 7%;
-  top: 18%;
-  width: 13%;
+  left: 18%;
+  top: 16%;
+  width: 11%;
   aspect-ratio: 1;
   border-radius: 50%;
   background: currentColor;
@@ -554,32 +576,32 @@ a {
 
 .counterweight {
   position: absolute;
-  left: 21%;
-  top: 9%;
-  width: 14%;
-  height: 22%;
+  left: 28%;
+  top: 6%;
+  width: 12%;
+  height: 26%;
   background: currentColor;
-  border-radius: 4px;
+  border-radius: 3px;
 }
 
 .pumpjack-support {
   position: absolute;
-  left: 41%;
-  top: 27%;
-  width: 1.9%;
-  height: 36%;
+  left: 47%;
+  top: 28%;
+  width: 2.1%;
+  height: 40%;
   background: currentColor;
-  transform: rotate(26deg);
+  transform: rotate(30deg);
   transform-origin: top center;
   border-radius: 999px;
 }
 
 .pumpjack-rod {
   position: absolute;
-  left: 74%;
-  top: 25%;
-  width: 1.8%;
-  height: 49%;
+  left: 8%;
+  top: 82%;
+  width: 1.4%;
+  height: 70%;
   background: currentColor;
   border-radius: 999px;
   transform-origin: top center;
@@ -588,9 +610,9 @@ a {
 
 .pumpjack-joint {
   position: absolute;
-  left: 73.1%;
-  top: 22%;
-  width: 4.3%;
+  left: 6.5%;
+  top: 76%;
+  width: 4.2%;
   aspect-ratio: 1;
   border-radius: 50%;
   background: currentColor;
@@ -650,7 +672,7 @@ a {
   height: 4px;
   border-radius: 999px;
   margin-bottom: 1rem;
-  background: linear-gradient(90deg, var(--red), var(--white), var(--blue-soft));
+  background: linear-gradient(90deg, #5a371c, #ffffff, #8b5a2b);
 }
 
 .grid-2 {
@@ -704,8 +726,15 @@ a {
   .pumpjack-head,
   .pumpjack-rod,
   .pumpjack-joint {
-    animation: none;
-  }
+  position: absolute;
+  left: 6.5%;
+  top: 76%;
+  width: 4.2%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: currentColor;
+  animation: rodMove 3.2s ease-in-out infinite;
+}
 }
 
 @media (max-width: 980px) {
@@ -714,21 +743,26 @@ a {
   .hero-cards, .grid-2, .grid-3 { grid-template-columns: 1fr; }
 
   .pumpjack-left {
-    left: -1%;
-    width: 180px;
-    height: 146px;
-  }
+  left: 1%;
+  width: 320px;
+  height: 255px;
+  opacity: 0.9;
+}
 
   .pumpjack-center {
-    width: 320px;
-    height: 260px;
-  }
+  left: 50%;
+  transform: translateX(-50%);
+  width: 560px;
+  height: 438px;
+  opacity: 1;
+}
 
   .pumpjack-right {
-    right: -2%;
-    width: 205px;
-    height: 164px;
-  }
+  right: 2%;
+  width: 380px;
+  height: 295px;
+  opacity: 0.93;
+}
 }
 
 @media (max-width: 760px) {
@@ -756,22 +790,26 @@ a {
   }
 
   .pumpjack-left {
-    display: none;
-  }
+  left: 1%;
+  width: 320px;
+  height: 255px;
+  opacity: 0.9;
+}
 
   .pumpjack-right {
-    width: 170px;
-    height: 136px;
-    right: -5%;
-    bottom: 8.5%;
-    opacity: 0.7;
-  }
+  right: 2%;
+  width: 380px;
+  height: 295px;
+  opacity: 0.93;
+}
 
   .pumpjack-center {
-    width: 275px;
-    height: 223px;
-    bottom: 7%;
-  }
+  left: 50%;
+  transform: translateX(-50%);
+  width: 560px;
+  height: 438px;
+  opacity: 1;
+}
 
   .hill-far {
   bottom: 21%;
@@ -971,4 +1009,61 @@ body.menu-open {
 .brush-upper-mid-4 { left: 63%; bottom: 27.8%; transform: scale(0.60); opacity:0.40; }
 .brush-upper-mid-5 { left: 78%; bottom: 29.5%; transform: scale(0.55); opacity:0.35; }
 
+}
+
+
+.pumpjack-head::before {
+  content: "";
+  position: absolute;
+  left: 14%;
+  top: 44%;
+  width: 1.1%;
+  height: 42%;
+  background: currentColor;
+  box-shadow: 7px 0 0 currentColor;
+  opacity: 0.95;
+}
+
+.pumpjack-tower::after {
+  box-shadow:
+    -18px -28px 0 -1px transparent;
+}
+
+.pumpjack-tower span {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  height: 3.5px;
+  background: currentColor;
+  border-radius: 999px;
+}
+
+.pumpjack-tower span:nth-child(1) { bottom: 21%; }
+.pumpjack-tower span:nth-child(2) { bottom: 41%; }
+.pumpjack-tower span:nth-child(3) { bottom: 61%; }
+
+.pumpjack::before {
+  content: "";
+  position: absolute;
+  left: 46%;
+  bottom: 9%;
+  width: 2%;
+  height: 52%;
+  background: currentColor;
+  transform: rotate(10deg);
+  transform-origin: bottom center;
+  opacity: 0.98;
+}
+
+.pumpjack::after {
+  content: "";
+  position: absolute;
+  left: 40%;
+  bottom: 10%;
+  width: 1.2%;
+  height: 36%;
+  background: currentColor;
+  transform: rotate(-18deg);
+  transform-origin: bottom center;
+  opacity: 0.9;
 }

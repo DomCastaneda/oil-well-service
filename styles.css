@@ -587,7 +587,7 @@ body.menu-open {
 }
 
 .pumpjack-mid-left {
-  left: 24%;
+  left: 20%;
   bottom: 43%;
   width: 220px;
   height: 162px;
@@ -604,8 +604,8 @@ body.menu-open {
 }
 
 .pumpjack-mid-right {
-  left: 66%;
-  bottom: 33%;
+  left: 75%;
+  bottom: 47%;
   width: 245px;
   height: 180px;
   opacity: 0.84;
@@ -860,9 +860,9 @@ body.menu-open {
 
 .pumpjack-pitman {
   position: absolute;
-  left: 52.5%;
-  top: 37%;
-  width: 36%;
+  left: 52%;
+  top: 34%;
+  width: 45%;
   height: 4px;
   background: currentColor;
   border-radius: 999px;

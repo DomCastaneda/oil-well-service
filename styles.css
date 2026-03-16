@@ -1067,3 +1067,639 @@ body.menu-open {
   transform-origin: bottom center;
   opacity: 0.9;
 }
+
+
+/* ===== Realistic pumpjack rebuild ===== */
+.pumpjack {
+  position: absolute;
+  bottom: 8%;
+  color: #060708;
+  filter: drop-shadow(0 20px 24px rgba(0,0,0,0.28));
+  transform-origin: bottom center;
+}
+
+.pumpjack-left {
+  left: 3%;
+  width: 210px;
+  height: 155px;
+  opacity: 0.82;
+}
+
+.pumpjack-center {
+  left: 50%;
+  width: 355px;
+  height: 262px;
+  transform: translateX(-50%);
+  opacity: 1;
+}
+
+.pumpjack-right {
+  right: 3%;
+  width: 235px;
+  height: 174px;
+  opacity: 0.85;
+}
+
+.pumpjack-base {
+  left: 14%;
+  bottom: 0;
+  width: 52%;
+  height: 8px;
+  background: currentColor;
+  border-radius: 999px;
+}
+
+.pumpjack-tower {
+  left: 34%;
+  bottom: 8px;
+  width: 18%;
+  height: 58%;
+}
+
+.pumpjack-tower::before,
+.pumpjack-tower::after {
+  width: 4px;
+  height: 100%;
+  border-radius: 999px;
+}
+
+.pumpjack-tower::before {
+  left: 10%;
+  transform: skewX(-16deg);
+}
+
+.pumpjack-tower::after {
+  right: 10%;
+  transform: skewX(16deg);
+}
+
+.pumpjack-tower span {
+  left: 12%;
+  right: 12%;
+  height: 3px;
+}
+
+.pumpjack-tower span:nth-child(1) { bottom: 18%; }
+.pumpjack-tower span:nth-child(2) { bottom: 40%; }
+.pumpjack-tower span:nth-child(3) { bottom: 62%; }
+
+.pumpjack-platform {
+  left: 23%;
+  bottom: 32%;
+  width: 30%;
+  height: 4px;
+  background: currentColor;
+  border-radius: 999px;
+}
+
+.pumpjack-head {
+  position: absolute;
+  left: 16%;
+  top: 18%;
+  width: 64%;
+  height: 20%;
+  transform-origin: 48% 58%;
+  animation: pumpjack-rock 2.9s cubic-bezier(0.45, 0.02, 0.55, 0.98) infinite;
+}
+
+.beam {
+  position: absolute;
+  left: 11%;
+  top: 44%;
+  width: 75%;
+  height: 8px;
+  background: currentColor;
+  border-radius: 999px;
+}
+
+.beam::before {
+  content: "";
+  position: absolute;
+  left: -15%;
+  top: 0;
+  width: 19%;
+  height: 8px;
+  background: currentColor;
+  border-radius: 999px;
+}
+
+.beam::after {
+  content: "";
+  position: absolute;
+  right: 7%;
+  top: 50%;
+  width: 17%;
+  height: 4px;
+  background: currentColor;
+  border-radius: 999px;
+  transform: translateY(-50%) rotate(22deg);
+  transform-origin: left center;
+}
+
+.horsehead {
+  position: absolute;
+  right: -2%;
+  top: 11%;
+  width: 17%;
+  height: 88%;
+  background: currentColor;
+  clip-path: polygon(12% 0, 86% 0, 100% 18%, 92% 38%, 76% 58%, 66% 78%, 64% 100%, 26% 100%, 22% 78%, 12% 52%, 0 24%);
+}
+
+.pivot {
+  position: absolute;
+  left: 48%;
+  top: 27%;
+  width: 13%;
+  aspect-ratio: 1;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.counterweight {
+  position: absolute;
+  left: 21%;
+  top: 25%;
+  width: 11%;
+  height: 30%;
+  background: currentColor;
+  border-radius: 3px;
+  transform: rotate(-18deg);
+}
+
+.pumpjack-support {
+  position: absolute;
+  left: 47.5%;
+  top: 29%;
+  width: 4px;
+  height: 42%;
+  background: currentColor;
+  border-radius: 999px;
+  transform: rotate(27deg);
+  transform-origin: top center;
+}
+
+.pumpjack-head::before {
+  content: "";
+  position: absolute;
+  right: 9%;
+  top: 60%;
+  width: 2px;
+  height: 26%;
+  background: currentColor;
+  opacity: 0.95;
+}
+
+.pumpjack-rod {
+  position: absolute;
+  left: 68%;
+  top: 30.5%;
+  width: 3px;
+  height: 57%;
+  background: currentColor;
+  border-radius: 999px;
+  transform-origin: top center;
+  animation: pumpjack-rod 2.9s cubic-bezier(0.45, 0.02, 0.55, 0.98) infinite;
+}
+
+.pumpjack-joint {
+  position: absolute;
+  left: calc(68% - 5px);
+  top: 27.5%;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: pumpjack-rod 2.9s cubic-bezier(0.45, 0.02, 0.55, 0.98) infinite;
+}
+
+.pumpjack::before {
+  content: "";
+  position: absolute;
+  left: 27%;
+  bottom: 8px;
+  width: 4px;
+  height: 34%;
+  background: currentColor;
+  border-radius: 999px;
+  transform: rotate(-25deg);
+  transform-origin: bottom center;
+}
+
+.pumpjack::after {
+  content: "";
+  position: absolute;
+  left: 54%;
+  bottom: 8px;
+  width: 4px;
+  height: 31%;
+  background: currentColor;
+  border-radius: 999px;
+  transform: rotate(18deg);
+  transform-origin: bottom center;
+}
+
+@keyframes pumpjack-rock {
+  0%, 100% { transform: rotate(-8deg); }
+  18% { transform: rotate(-5deg); }
+  50% { transform: rotate(9deg); }
+  82% { transform: rotate(-3deg); }
+}
+
+@keyframes pumpjack-rod {
+  0%, 100% { transform: translateY(-10px); }
+  18% { transform: translateY(-6px); }
+  50% { transform: translateY(18px); }
+  82% { transform: translateY(2px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pumpjack-head,
+  .pumpjack-rod,
+  .pumpjack-joint {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+@media (max-width: 980px) {
+  .pumpjack-left {
+    left: 1%;
+    width: 165px;
+    height: 122px;
+    opacity: 0.74;
+  }
+
+  .pumpjack-center {
+    width: 270px;
+    height: 199px;
+  }
+
+  .pumpjack-right {
+    right: 1%;
+    width: 180px;
+    height: 133px;
+    opacity: 0.76;
+  }
+}
+
+@media (max-width: 760px) {
+  .pumpjack-left,
+  .pumpjack-right {
+    display: none;
+  }
+
+  .pumpjack-center {
+    width: 210px;
+    height: 155px;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* ===== Pumpjack size/position tuning ===== */
+.pumpjack {
+  bottom: 14%;
+}
+
+.pumpjack-left {
+  left: 2%;
+  width: 260px;
+  height: 192px;
+}
+
+.pumpjack-center {
+  width: 440px;
+  height: 325px;
+}
+
+.pumpjack-right {
+  right: 2%;
+  width: 290px;
+  height: 214px;
+}
+
+@media (max-width: 980px) {
+  .pumpjack {
+    bottom: 16%;
+  }
+
+  .pumpjack-left {
+    left: -1%;
+    width: 210px;
+    height: 155px;
+  }
+
+  .pumpjack-center {
+    width: 340px;
+    height: 251px;
+  }
+
+  .pumpjack-right {
+    right: -1%;
+    width: 225px;
+    height: 166px;
+  }
+}
+
+@media (max-width: 760px) {
+  .pumpjack {
+    bottom: 17%;
+  }
+
+  .pumpjack-left {
+    left: -5%;
+    width: 165px;
+    height: 122px;
+    opacity: 0.78;
+  }
+
+  .pumpjack-center {
+    width: 275px;
+    height: 203px;
+  }
+
+  .pumpjack-right {
+    right: -5%;
+    width: 178px;
+    height: 131px;
+    opacity: 0.8;
+  }
+}
+
+
+/* ===== Pumpjack alignment refinement ===== */
+.pumpjack-tower {
+  left: 30%;
+  width: 24%;
+  height: 60%;
+  background:
+    linear-gradient(currentColor, currentColor) 28% 0 / 2px 100% no-repeat,
+    linear-gradient(currentColor, currentColor) 72% 0 / 2px 100% no-repeat;
+}
+
+.pumpjack-tower::before {
+  left: 4%;
+  width: 4px;
+}
+
+.pumpjack-tower::after {
+  right: 4%;
+  width: 4px;
+}
+
+.pumpjack-tower span {
+  left: 4%;
+  right: 4%;
+  height: 3px;
+}
+
+.pumpjack-platform {
+  left: 21%;
+  width: 35%;
+}
+
+.pumpjack-head {
+  left: 14%;
+  width: 68%;
+  transform-origin: 46% 58%;
+}
+
+.beam {
+  left: 10%;
+  width: 76%;
+}
+
+.beam::before {
+  left: -12%;
+  width: 17%;
+}
+
+.horsehead {
+  right: 5.5%;
+  top: 8%;
+  width: 13.5%;
+  height: 92%;
+  clip-path: polygon(20% 0, 90% 0, 100% 12%, 96% 32%, 82% 56%, 73% 78%, 72% 100%, 30% 100%, 24% 78%, 16% 52%, 0 20%);
+}
+
+.horsehead::before,
+.horsehead::after {
+  content: "";
+  position: absolute;
+  bottom: -38%;
+  width: 2px;
+  height: 42%;
+  background: currentColor;
+  border-radius: 999px;
+}
+
+.horsehead::before {
+  left: 38%;
+}
+
+.horsehead::after {
+  left: 56%;
+}
+
+.pumpjack-head::before {
+  right: 13.5%;
+  top: 56%;
+  height: 30%;
+}
+
+.pumpjack-support {
+  left: 47%;
+  top: 28%;
+}
+
+.pumpjack-rod {
+  left: 70.8%;
+  top: 31%;
+}
+
+.pumpjack-joint {
+  left: calc(70.8% - 5px);
+  top: 28%;
+}
+
+
+/* === pumpjack realism fixes === */
+.pumpjack::before,
+.pumpjack::after {
+  content: none !important;
+}
+
+.pumpjack-tower {
+  left: 29% !important;
+  width: 25% !important;
+}
+
+.pumpjack-tower::before,
+.pumpjack-tower::after {
+  width: 5px !important;
+  height: 100% !important;
+  bottom: 0 !important;
+  border-radius: 999px;
+}
+
+.pumpjack-tower::before {
+  left: 8% !important;
+  transform: skewX(-16deg) !important;
+  box-shadow: 16px 0 0 currentColor;
+}
+
+.pumpjack-tower::after {
+  right: 8% !important;
+  transform: skewX(16deg) !important;
+  box-shadow: -16px 0 0 currentColor;
+}
+
+.pumpjack-tower span {
+  left: 4% !important;
+  right: 4% !important;
+  height: 4px !important;
+}
+
+.pumpjack-head {
+  left: 28% !important;
+  top: 18% !important;
+  width: 58% !important;
+  transform-origin: 28% 52% !important;
+}
+
+.beam {
+  left: 16% !important;
+  top: 37% !important;
+  width: 70% !important;
+}
+
+.beam::before {
+  left: -2% !important;
+  top: -1px !important;
+  width: 14% !important;
+}
+
+.beam::after {
+  right: -1% !important;
+  width: 11% !important;
+  transform: rotate(2deg) !important;
+}
+
+.horsehead {
+  left: 4% !important;
+  top: -6% !important;
+  width: 24% !important;
+  height: 116% !important;
+  clip-path: polygon(78% 0, 96% 8%, 90% 100%, 44% 100%, 28% 90%, 18% 72%, 16% 55%, 20% 36%, 31% 18%, 48% 5%);
+}
+
+.horsehead::before {
+  content: "";
+  position: absolute;
+  left: 52%;
+  top: 80%;
+  width: 6px;
+  height: 22%;
+  background: currentColor;
+  border-radius: 999px;
+}
+
+.horsehead::after {
+  content: "";
+  position: absolute;
+  left: 48%;
+  top: 97%;
+  width: 14%;
+  height: 7px;
+  background: currentColor;
+  border-radius: 999px;
+  transform: translateX(-50%);
+}
+
+.pumpjack-head::before {
+  left: 16.5% !important;
+  top: 58% !important;
+  width: 1.3% !important;
+  height: 45% !important;
+  box-shadow: 10px 0 0 currentColor !important;
+}
+
+.pivot {
+  left: 30% !important;
+  top: 15% !important;
+  width: 10.5% !important;
+}
+
+.counterweight {
+  left: 42% !important;
+  top: 8% !important;
+  width: 11% !important;
+}
+
+.pumpjack-support {
+  left: 49% !important;
+  top: 30% !important;
+  width: 2.2% !important;
+  height: 40% !important;
+  transform: rotate(33deg) !important;
+}
+
+.pumpjack-rod {
+  left: 37.1% !important;
+  top: 30% !important;
+  width: 1.2% !important;
+  height: 54% !important;
+  animation: rodMove 3.2s ease-in-out infinite !important;
+}
+
+.pumpjack-joint {
+  left: 35.4% !important;
+  top: 27.6% !important;
+  width: 4.2% !important;
+  animation: rodMove 3.2s ease-in-out infinite !important;
+}
+
+@keyframes rodMove {
+  0%, 100% { transform: translateY(-6px); }
+  50% { transform: translateY(20px); }
+}
+
+@media (max-width: 980px) {
+  .pumpjack-head {
+    top: 19% !important;
+  }
+  .pumpjack-rod {
+    left: 37.2% !important;
+    height: 52% !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .pumpjack-tower::before {
+    box-shadow: 13px 0 0 currentColor;
+  }
+  .pumpjack-tower::after {
+    box-shadow: -13px 0 0 currentColor;
+  }
+  .pumpjack-rod {
+    left: 37.4% !important;
+    height: 49% !important;
+  }
+}
+
+.carousel {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  position: relative;
+}
+
+.carousel img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;   
+  object-position: center;
+}

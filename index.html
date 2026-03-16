@@ -4,16 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Oil Crew Service Inc.</title>
-  <meta name="description" content="Oil Crew Service Inc. provides efficient oilfield solutions including drilling, completion, production support, equipment maintenance, and field operations." />
+  <meta name="description" content="Oil Crew Service Inc. delivers dependable oilfield support services including drilling support, completion services, production assistance, equipment maintenance, and field operations." />
+  <meta name="theme-color" content="#0b0f14" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header class="topbar">
     <div class="container nav">
-      <div class="brand">
+      <a href="#" class="brand" aria-label="Oil Crew Service Inc. home">
         <strong>Oil Crew Service Inc.</strong>
-      </div>
-      <nav class="nav-links" aria-label="Main navigation">
+        <span>Dependable Oilfield Support</span>
+      </a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="site-menu" aria-label="Open navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-links" id="site-menu" aria-label="Main navigation">
         <a href="#services">Services</a>
         <a href="#about">About</a>
         <a href="#owners">Leadership</a>
@@ -34,7 +39,40 @@
         <div class="scene">
           <div class="hill hill-far"></div>
           <div class="hill hill-mid"></div>
+          <div class="hill-seam-cover"></div>
           <div class="hill hill-near"></div>
+
+          
+          <div class="brush-scatter">
+
+            <div class="brush-clump brush-top-1"></div>
+            <div class="brush-clump brush-top-2"></div>
+            <div class="brush-clump brush-top-3"></div>
+            <div class="brush-clump brush-top-4"></div>
+            <div class="brush-clump brush-top-5"></div>
+            <div class="brush-clump brush-top-6"></div>
+
+            <div class="brush-clump brush-upper-mid-1"></div>
+            <div class="brush-clump brush-upper-mid-2"></div>
+            <div class="brush-clump brush-upper-mid-3"></div>
+            <div class="brush-clump brush-upper-mid-4"></div>
+            <div class="brush-clump brush-upper-mid-5"></div>
+
+            <div class="brush-clump brush-a"></div>
+            <div class="brush-clump brush-b"></div>
+            <div class="brush-clump brush-c"></div>
+            <div class="brush-clump brush-d"></div>
+            <div class="brush-clump brush-e"></div>
+            <div class="brush-clump brush-f"></div>
+            <div class="brush-clump brush-g"></div>
+            <div class="brush-clump brush-h"></div>
+
+            <div class="brush-clump brush-mid-1"></div>
+            <div class="brush-clump brush-mid-2"></div>
+            <div class="brush-clump brush-mid-3"></div>
+            <div class="brush-clump brush-mid-4"></div>
+            <div class="brush-clump brush-mid-5"></div>
+          </div>
 
           <div class="bushes bushes-back"></div>
           <div class="bushes bushes-front"></div>
@@ -98,14 +136,18 @@
       <div class="container hero-content">
         <h1>Clean, dependable support for oilfield operations.</h1>
         <p class="hero-text">
-          Oil Crew Service Inc. provides drilling, completion, production support,
-          equipment maintenance, and field operations assistance with a polished,
-          trustworthy online presence built to look strong on desktop and mobile.
+          Reliable drilling, completion, production, and field support for crews who need responsive service, safe execution, and dependable results in demanding environments.
         </p>
 
         <div class="hero-actions">
-          <a href="#contact" class="btn btn-primary">Contact Us</a>
+          <a href="#contact" class="btn btn-primary">Request Service</a>
           <a href="#services" class="btn btn-secondary">View Services</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-pill">Field-ready support</div>
+          <div class="stat-pill">Responsive service</div>
+          <div class="stat-pill">Built for desktop & mobile</div>
         </div>
 
         <div class="hero-cards">
@@ -212,6 +254,7 @@
               Phone: (000) 000-0000<br />
               Service Area: Add your service region here
             </p>
+            <a href="mailto:your@email.com" class="btn btn-primary contact-btn">Email Now</a>
           </article>
           <article class="card">
             <h3>Business Info</h3>

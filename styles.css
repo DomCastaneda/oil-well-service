@@ -394,18 +394,6 @@ a {
   opacity: 0.98;
 }
 
-.bushes-back {
-  bottom: 10.9%;
-  height: 58px;
-  background-image:
-    radial-gradient(circle at 18px 54px, #223e11 0 20px, transparent 21px),
-    radial-gradient(circle at 55px 44px, #2a4816 0 24px, transparent 25px),
-    radial-gradient(circle at 90px 55px, #1f3610 0 18px, transparent 19px),
-    radial-gradient(circle at 122px 48px, #31511a 0 20px, transparent 21px),
-    radial-gradient(circle at 150px 58px, #244314 0 22px, transparent 23px);
-  opacity: 0.92;
-
-}
 
 .bushes-front {
   bottom: 4.1%;
@@ -976,7 +964,16 @@ body.menu-open {
 .brush-upper-mid-4 { left: 63%; bottom: 27.8%; transform: scale(0.60); opacity:0.40; }
 .brush-upper-mid-5 { left: 78%; bottom: 29.5%; transform: scale(0.55); opacity:0.35; }
 
-}
+
+/* ===== bushes on the far/top hill ===== */
+
+.brush-far-1 { left: 6%;  bottom: 38%; transform: scale(0.38); opacity:0.25; }
+.brush-far-2 { left: 18%; bottom: 39%; transform: scale(0.36); opacity:0.24; }
+.brush-far-3 { left: 32%; bottom: 37.5%; transform: scale(0.40); opacity:0.26; }
+.brush-far-4 { left: 48%; bottom: 39%; transform: scale(0.34); opacity:0.23; }
+.brush-far-5 { left: 62%; bottom: 38%; transform: scale(0.38); opacity:0.25; }
+.brush-far-6 { left: 76%; bottom: 39.5%; transform: scale(0.35); opacity:0.23; }
+.brush-far-7 { left: 90%; bottom: 38%; transform: scale(0.36); opacity:0.24; }
 
 
 .pumpjack-head::before {

@@ -4,10 +4,11 @@
   --panel-border: rgba(255, 255, 255, 0.1);
   --white: #ffffff;
   --white-soft: #dce3ec;
-  --red: #ffffff;
-  --red-soft: #ffffff;
-  --blue: #ffffff;
-  --blue-soft: #ffffff;
+  --red: #c81f34;
+  --red-soft: #ff6b7c;
+
+  --blue: #1d4ed8;
+  --blue-soft: #5a8bff;
   --shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
   --radius: 22px;
   --max-width: 1180px;
@@ -107,7 +108,7 @@ a {
   bottom: 0.1rem;
   height: 2px;
   border-radius: 999px;
-  background: linear-gradient(90deg, var(--red), var(--blue-soft));
+  background: linear-gradient(90deg, var(--red), #ffffff, var(--blue));
   opacity: 0;
   transform: scaleX(0.4);
   transition: 0.2s ease;
@@ -899,7 +900,12 @@ body.menu-open {
   height: 4px;
   border-radius: 999px;
   margin-bottom: 1rem;
-  background: linear-gradient(90deg, #ffffff, #ffffff, #ffffff);
+  background: linear-gradient(
+    90deg,
+    var(--red) 0%,
+    #ffffff 50%,
+    var(--blue) 100%
+  );
 }
 
 .grid-1 {
@@ -1571,4 +1577,79 @@ body.menu-open {
   height: 50px;
   width: auto;
   opacity: 0.9;
+}
+
+/* ===== Safety page ===== */
+.safety-page-hero {
+  padding-top: 7rem;
+  padding-bottom: 3.5rem;
+}
+
+.safety-page-hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+  gap: 1.5rem;
+  align-items: end;
+}
+
+.safety-page-copy h1 {
+  margin: 0 0 1rem;
+  font-size: clamp(2.4rem, 6vw, 4.4rem);
+  line-height: 0.98;
+  max-width: 12ch;
+}
+
+.safety-page-copy p {
+  max-width: 720px;
+}
+
+.safety-page-kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.78rem;
+  color: var(--white-soft);
+  margin-bottom: 0.65rem;
+}
+
+.safety-page-summary {
+  padding: 1.5rem;
+}
+
+.safety-page-summary h2,
+.safety-callout h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.safety-principles-grid,
+.safety-support-grid {
+  align-items: stretch;
+}
+
+.safety-principle-card {
+  min-height: 100%;
+}
+
+.safety-callout {
+  padding: 2rem;
+}
+
+@media (max-width: 980px) {
+  .safety-page-hero-inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .safety-page-hero {
+    padding-top: 6rem;
+  }
+
+  .safety-page-copy h1 {
+    max-width: none;
+  }
+
+  .safety-callout {
+    padding: 1.5rem;
+  }
 }

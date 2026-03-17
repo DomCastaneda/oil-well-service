@@ -18,3 +18,10 @@ if (toggle && menu) {
     });
   });
 }
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 760) {
+    navLinks.classList.remove('is-open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('menu-open');
+  }
+});

@@ -141,7 +141,6 @@ a {
   border-radius: 999px;
 }
 
-html:has(.nav-links.is-open),
 body.menu-open {
   overflow: hidden;
 }
@@ -1107,24 +1106,35 @@ body.menu-open {
   .nav {
     flex-direction: row;
     align-items: center;
+    position: relative;
   }
 
   .nav-links {
-    position: fixed;
+    position: absolute;
     top: 72px;
     left: 0;
     right: 0;
-    display: none;
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 0;
     padding: 1rem;
     background: rgba(4, 6, 9, 0.98);
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    z-index: 200;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-8px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
   }
 
   .nav-links.is-open {
-    display: flex;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
   }
 
   .nav-links a {

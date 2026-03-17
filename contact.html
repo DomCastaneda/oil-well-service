@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Oil Crew Service Inc.</title>
+  <meta name="description" content="Contact Oil Crew Service Inc. for service requests, field support inquiries, and Southern California oilfield service coverage information." />
+  <meta name="theme-color" content="#0b0f14" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a href="index.html" class="brand" aria-label="Oil Crew Service Inc. home">
+        <strong>Oil Crew Service Inc.</strong>
+      </a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="site-menu" aria-label="Open navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-links" id="site-menu" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="contact" class="section section-alt">
+      <div class="container">
+        <div class="section-heading">
+          <div class="accent-line"></div>
+          <h2>Contact Us</h2>
+        </div>
+
+        <div class="grid grid-2">
+
+          <!-- Contact Info -->
+          <article class="card">
+            <h3>Phone & Email</h3>
+            <p>
+              Email: info@oilcrewservice.com<br />
+              Phone: 714-319-4985
+            </p>
+
+            <a href="mailto:info@oilcrewservice.com" class="btn btn-secondary contact-btn">
+              Email Now
+            </a>
+          </article>
+
+          <!-- Reasons to Contact -->
+          <article class="card">
+            <h3>Contact For:</h3>
+            <ul class="contact-reasons">
+              <li>Service requests</li>
+              <li>Field support inquiries</li>
+              <li>General questions</li>
+              <li>Well abandonments</li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="service-area" class="section">
+      <div class="container">
+        <div class="section-heading">
+          <div class="accent-line"></div>
+          <h2>Service Area</h2>
+          <p>We provide support across key Southern California operating areas, including Los Angeles County, Orange County, and Riverside County.</p>
+        </div>
+
+        <div class="grid grid-1 service-area-grid">
+          <article class="card">
+            <div id="service-map" class="service-map" aria-label="Map showing service coverage areas"></div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Oil Crew Service Inc. / 714-319-4985 / All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener('click', () => {
+        const isOpen = navLinks.classList.toggle('is-open');
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+        document.body.classList.toggle('menu-open', isOpen);
+      });
+
+      navLinks.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('is-open');
+          menuToggle.setAttribute('aria-expanded', 'false');
+          document.body.classList.remove('menu-open');
+        });
+      });
+    }
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const serviceMap = document.getElementById('service-map');
+    if (serviceMap && typeof L !== 'undefined') {
+      const map = L.map('service-map').setView([33.9, -117.9], 9);
+
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+        attribution: '© OpenStreetMap & CARTO'
+      }).addTo(map);
+
+      L.circle([33.7175, -117.8311], {
+        color: '#c9a227',
+        fillColor: '#c9a227',
+        fillOpacity: 0.25,
+        radius: 35000
+      }).addTo(map);
+
+      L.circle([34.0522, -118.2437], {
+        color: '#c9a227',
+        fillColor: '#c9a227',
+        fillOpacity: 0.25,
+        radius: 45000
+      }).addTo(map);
+
+      L.circle([33.9533, -117.3962], {
+        color: '#c9a227',
+        fillColor: '#c9a227',
+        fillOpacity: 0.25,
+        radius: 45000
+      }).addTo(map);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | Oil Crew Service Inc.</title>
+  <meta name="description" content="Learn more about Oil Crew Service Inc., our field-first approach, and the leadership team behind our oilfield support services." />
+  <meta name="theme-color" content="#0b0f14" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a href="index.html" class="brand" aria-label="Oil Crew Service Inc. home">
+        <strong>Oil Crew Service Inc.</strong>
+      </a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="site-menu" aria-label="Open navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-links" id="site-menu" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="about-page-hero section section-alt">
+      <div class="container about-page-hero-inner">
+        <div class="section-heading about-page-copy">
+          <div class="accent-line"></div>
+          <p class="services-kicker">About Us</p>
+          <h1>Team built on dependable service and practical experience.</h1>
+        </div>
+
+        <article class="card about-page-summary">
+          <h2>What We Focus On</h2>
+          <div class="services-badges">
+            <span class="stat-pill">Safe Field Execution</span>
+            <span class="stat-pill">Reliable Support</span>
+            <span class="stat-pill">Clear Communication</span>
+            <span class="stat-pill">Responsive Service</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="grid grid-1">
+          <article class="card about-page-story">
+            <div class="accent-line"></div>
+            <h2>Our Company</h2>
+            <p>
+              Oil Crew Service Inc. delivers dependable field support for oil and gas operations throughout Southern California. Our team works directly with drilling, completion, and production crews to provide practical assistance that keeps projects moving safely and efficiently.
+            </p>
+            <p>
+              Built on field experience, our company focuses on responsive service, reliable equipment support, and the ability to adapt quickly to the demands of active operations. From drilling support to completion assistance and production maintenance, we understand the pace and conditions of real field work.
+            </p>
+            <p>
+              Our approach is straightforward: show up prepared, work safely, and deliver dependable results that crews can count on. We take pride in supporting operators and service companies with the equipment, coordination, and field knowledge needed to keep operations running smoothly.
+            </p>
+            <p>
+              Oil Crew Service Inc. is committed to maintaining strong working relationships with our partners by delivering consistent service, clear communication, and reliable support across every project.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-heading">
+          <div class="accent-line"></div>
+          <h2>Leadership</h2>
+        </div>
+
+        <div class="grid grid-2 leadership-grid">
+          <article class="card leadership-card">
+            <span class="owner-title">Owner</span>
+            <h3>Christopher Otken</h3>
+            <p>
+              Christopher Otken brings over 20 years of oilfield industry experience focused on field operations, equipment readiness, and reliable service support. As co-owner of Oil Crew Service Inc., he helps oversee operations and works to ensure crews have the dependable equipment and field support needed to keep projects running safely and efficiently.
+            </p>
+          </article>
+
+          <article class="card leadership-card">
+            <span class="owner-title">Owner</span>
+            <h3>Tyler Waidley</h3>
+            <p>
+              Tyler’s leadership approach centers on dependable service, clear communication, and practical execution in demanding field conditions. He works closely with operators and service crews to ensure projects are supported with the responsiveness and coordination needed to keep operations moving.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Oil Crew Service Inc. / 714-319-4985 / All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener('click', () => {
+        const isOpen = navLinks.classList.toggle('is-open');
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+        document.body.classList.toggle('menu-open', isOpen);
+      });
+
+      navLinks.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('is-open');
+          menuToggle.setAttribute('aria-expanded', 'false');
+          document.body.classList.remove('menu-open');
+        });
+      });
+    }
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
